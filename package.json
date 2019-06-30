@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "cookies-js": "^1.2.3",
     "dotenv": "^7.0.0",
+    "enzyme": "^3.10.0",
     "font-awesome": "^4.7.0",
     "formik": "^1.5.1",
     "history": "^4.9.0",
