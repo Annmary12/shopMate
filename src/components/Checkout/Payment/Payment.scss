@@ -3,6 +3,16 @@
 .payment {
   padding: 12rem 14rem;
 
+  .card-name {
+    border: 1px solid rgba(13, 42, 77, 0.15);
+    font-size: 1.4rem;
+    font-family: ".SF NS Display";
+    width: 100%;
+    color: rgba(13, 42, 77, 0.8);
+    padding: 1.5rem 1.5rem;
+    border-radius: .6rem;
+  }
+
   &__method {
     width: 100%;
     display: grid;

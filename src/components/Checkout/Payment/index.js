@@ -14,7 +14,6 @@ import './Payment.scss';
 
 // component
 import RadioBox from 'components/RadioBox';
-import InputBox from 'components/InputBox';
 import Button from 'components/Button';
 
 // images
@@ -72,6 +71,7 @@ class CheckoutPayment extends Component {
   }
 
   handleInputChange = (event) => {
+    console.log(event.target.name, 'I came here');
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
@@ -112,7 +112,6 @@ class CheckoutPayment extends Component {
   }
   render() {
     const { handleInputChange, handleSubmit } = this;
-    console.log(this.props.isLoading, 'isloading===')
     return (
       <form onSubmit={handleSubmit}>
         <div className="payment">
@@ -148,11 +147,7 @@ class CheckoutPayment extends Component {
           <div className="form-row mtm">
             <div>
               <label htmlFor="name">Cardholder's Name</label>
-              <InputBox
-                type="text"
-                name="name"
-                inputType="blocked"
-              />
+              <input name="name"onChange={handleInputChange} className="card-name mtxs"/>
             </div>
             <div>
               <label htmlFor="name" className="stripe-label">Card Number</label>
