@@ -1,0 +1,29 @@
+@import '../../assets/scss/variables.scss';
+
+.input-range__slider {
+  background: $primary-color !important;
+  border: 1px solid $primary-color !important;
+  margin-top: -0.75rem !important;
+}
+
+.input-range__track--active {
+  background: $primary-color !important;
+}
+
+.input-range__track {
+  height: .6rem !important;
+}
+
+.input-range__label--min {
+  display: none !important;
+}
+
+.input-range__label--max {
+  display: none !important;
+}
+
+.input-range__label--value {
+  top: 1.5rem !important;
+  font-size: 1.2rem !important;
+  font-family: "Lucida Grande";
+}

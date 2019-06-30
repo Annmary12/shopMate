@@ -1,0 +1,4 @@
+export const AUTH_SUCCESS = 'REGISTER_USER_SUCESS';
+export const AUTH_FAILURE = 'AUTH_FAILURE';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const LOGOUT = 'LOGOUT_SUCCESS'

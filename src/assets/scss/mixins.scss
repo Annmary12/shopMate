@@ -1,0 +1,28 @@
+@mixin clearfix {
+  &::after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+}
+
+@mixin size {
+  .size {
+    display: inline-block;
+    width: 5.5rem;
+    padding: 1rem;
+    border-radius: .2rem;
+    font-family: "Lucida Grande";
+    margin: .5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    background-color: #EFEFEF;
+    cursor: pointer;
+
+    &__active {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+}

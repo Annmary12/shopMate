@@ -1,0 +1,22 @@
+@import '../../assets/scss/variables.scss';
+
+%general-style {
+  padding: .6rem;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  text-align: center;
+  font-family: ".SF NS Display";
+}
+
+.label {
+  &__cyan {
+    @extend %general-style;
+    background: $cyan;
+  }
+
+  &__orange {
+    @extend %general-style;
+    background: $orange;
+  }
+}

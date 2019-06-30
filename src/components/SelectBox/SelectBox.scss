@@ -1,0 +1,62 @@
+@import '../../assets/scss/variables.scss';
+
+%dropdown-icon-property {
+  top: 30%;
+  position: absolute;
+  font-size: 2rem;
+  right: 6%;
+}
+
+.select-box {
+  &__inputField {
+    position: relative;
+  }
+
+  &__input {
+    margin:  1.5rem 0;
+    padding: 1.5rem;
+    border-radius: .3rem;
+    border: 1px solid $dark-grey;
+    font-size: 1.4rem;
+    width: 240px;
+    color: transparentize($black, 0.5);
+    cursor: pointer;
+
+    &:focus {
+      border: .1rem solid $primary-color;
+    }
+
+    &--icon {
+      @extend %dropdown-icon-property;
+      color: $green
+    }
+  }
+
+  &__options {
+    position: absolute;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    background: white;
+    margin-top: -.8rem;
+    box-shadow: .3rem .3rem .3rem .3rem rgba($primary-color, .1);
+    cursor: pointer;
+
+    &__item {
+      padding: 2rem 2.5rem;
+      font-size: 1.4rem;
+
+      &:hover {
+        background: transparentize(green, 0.95);
+        color: $primary-color;
+      }
+    }
+  }
+
+  ::placeholder {
+    font-family: 'Lobster Two', cursive;
+    color: transparentize($black, 0.5);
+    font-size: 1.6rem;
+  }
+}

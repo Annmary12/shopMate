@@ -1,0 +1,98 @@
+@import '../../assets/scss/variables.scss';
+
+.subnav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  background: $white;
+  font-size: 1.5rem;
+  font-family: ".SF NS Display";
+
+  &__sign-info {
+    line-height: 3.6rem;
+    position: relative;
+
+    .title {
+      color: $primary-color;
+      font-weight: 700;
+      cursor: pointer;
+
+     span {
+        color: $black;
+        padding-left: 0.5rem;
+      }
+    }
+
+    .user-info {
+      position: absolute;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+      background: $white;
+      margin-top: 1rem;
+      box-shadow: .3rem .3rem .3rem .3rem rgba($black, .1);
+      padding: 2rem;
+      cursor: pointer;
+
+     .item {
+        font-size: 1.4rem;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  &__links {
+    span {
+      display: inline-block;
+      margin: 0 2rem;
+      line-height: 3.6rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &__country {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 48.6rem;
+
+    span {
+      margin: 0 1rem;
+    }
+  }
+
+  &__notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    span {
+      margin: 0 2rem;
+      font-weight: 700;
+      letter-spacing: .2rem;
+      cursor: pointer;
+    }
+
+    &--number {
+      position: absolute;
+      top: -15%;
+      left: 5%;
+      color: $white;
+      background: $primary-color;
+      padding: .5rem;
+      height: 2.4rem;
+      width: 2.4rem;
+      border-radius: 50%;
+      text-align: center;
+
+    }
+  }
+}

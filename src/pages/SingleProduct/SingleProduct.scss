@@ -1,0 +1,273 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+ .single-product {
+   width: 90%;
+   margin: auto;
+   border: 1px solid $grey;
+   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
+
+   &__card {
+     background: $white;
+     display: flex;
+     padding: 4rem 8rem;
+   }
+
+   &__image {
+     width:45%;
+     text-align: center;
+
+     &--big {
+       margin-top: 4rem;
+       width: 30rem !important;
+       height: auto !important;
+       object-fit: cover;
+        &:hover {
+          // transform: scale(1.5)
+        }
+     }
+     .magnifier-image {
+       cursor:  pointer !important;
+     }
+
+     .magnifying-glass {
+      // Styles for magnifying glass
+      background-color: $white !important;
+      background-size: 100% auto !important;
+      top: 2% !important;
+      left: 100% !important;
+      cursor: pointer !important;
+    }
+
+     &--small {
+      height: 10rem;
+      width: 10rem;
+      padding: .5rem
+     }
+
+     &--active {
+      border: 1px solid $primary-color;
+     }
+   }
+
+   &__small-images {
+     padding-top: 8rem;
+     text-align: center;
+     cursor: pointer;
+   }
+
+   &__content {
+     padding: 0 6rem;
+     ul {
+       list-style: none;
+       display: flex;
+       align-items: center;
+
+       li {
+         a {
+          color: $dark-grey;
+         }
+         margin: 2rem;
+         font-family: Helvetica;
+         font-size: 1.6rem;
+         line-height: 2.4rem;
+         color: $dark-grey;
+       }
+
+       li:first-child {
+         margin-left: 0;
+       }
+     }
+   }
+   &__title {
+    color: transparentize($black, 0.2);
+    font-family: ".SF NS Display";
+    font-size: 2.4rem;
+    letter-spacing: .1rem;
+    line-height: 3.6rem;
+   }
+
+   &__description {
+    color: transparentize($black, 0.2);
+    font-family: ".SF NS Display";
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    line-height: 2.6rem;
+   }
+
+   &__price {
+    color: $primary-color;
+    font-family: ".SF NS Display";
+    font-size: 2.4rem;
+    letter-spacing: .103rem;
+    line-height: 3.6rem;
+   }
+
+   &__sizes {
+     @include size;
+   }
+
+   &__quantity {
+    &--btn {
+      .fa {
+        height: 3.6rem;
+        width: 3.6rem;
+        border-radius: 50%;
+        background-color: $grey;
+        padding: 1rem;
+        cursor: pointer;
+        color: transparentize($black, 0.2);
+      }
+    }
+
+    &--value {
+      display: inline-block;
+      margin: 0 1rem;
+      height: 3.6rem;
+      width: 5rem;
+      border: .1rem solid $grey;
+      border-radius: 10rem;
+      background-color: $white;
+      padding: 1rem;
+      font-size: 1.6rem;
+      text-align: center;
+      font-family: ".SF NS Display";
+      font-weight: 700;
+    }
+   }
+
+   h2 {
+    color: $dark-grey;
+    font-family: ".SF NS Display";
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+   }
+
+   &__checkout {
+     &--icon {
+       padding-left: 6rem;
+
+        img {
+          cursor: pointer;
+        }
+
+       span {
+        color: $dark-grey;
+        font-family: ".SF NS Display";
+        font-size: 1.4rem;
+        letter-spacing: .1rem;
+        line-height: 3.6rem;
+        padding-left: 1rem;
+       }
+     }
+   }
+ }
+
+ .product-review {
+   padding: 4rem 8rem;
+
+   &__title {
+      font-family: ".SF NS Display";
+      font-size: 2.4rem;
+      letter-spacing: .1rem;
+      line-height: 3.6rem;
+   }
+   &__content {
+     padding-top: 2rem;
+     display: flex;
+   }
+
+   &__name {
+    font-family: "Lucida Grande";
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+   }
+
+   &__time {
+    color: $dark-grey;
+    font-family: "Lucida Grande";
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+   }
+
+   &__description {
+    color: transparentize($black, 0.2);
+    font-family: ".SF NS Display";
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    img {
+      background: $grey;
+      padding: 1rem;
+      border-radius: 50%;
+    }
+
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 2.5rem;
+    }
+
+    .icons {
+      display: flex;
+    }
+   }
+
+   &__rating {
+     width: 25%;
+   }
+
+   &__form-title {
+    color: transparentize($black, 0.1);
+    font-family: ".SF NS Display";
+    font-size: 2.4rem;
+    letter-spacing: .1rem;
+    line-height: 3.6rem;
+   }
+
+   &__form-field {
+     display: flex;
+     justify-content: flex-start;
+     align-items: flex-start;
+
+     label {
+      padding-top: 2rem;
+      color: transparentize($black, 0.2);
+      font-family: "Lucida Grande";
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 2.4rem;
+      width: 24%;
+     }
+
+     .label-rating {
+       padding-top: 0 !important;
+     }
+
+     &--input {
+       width: 70%;
+     }
+   }
+ }
+.products {
+  width: 90%;
+  margin: auto;
+  &__title {
+    color: transparentize($black, 0.2);
+    font-family: ".SF NS Display";
+    font-size: 2.4rem;
+    letter-spacing: .1rem;
+    line-height: 3.6rem;
+  }
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+
+  }
+}
+ .vl {
+   border-bottom: .1rem solid transparentize($dark-grey, 0.7);
+ }

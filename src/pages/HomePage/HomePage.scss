@@ -1,0 +1,235 @@
+@import '../../assets/scss/variables.scss';
+
+.homepage {
+  background: url('../../assets/images/Bitmap.png') $grey;
+  height: 500px;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+
+  &__header {
+    padding: 6.8rem 10.9rem;
+  }
+
+  &__title {
+    color: $white;
+    font-family: ".SF NS Display";
+    font-size: 4.8rem;
+    letter-spacing: .2rem;
+    line-height: 72px;
+    padding-bottom: 2rem;
+  }
+
+  &__sub-title {
+    color: $white;
+    font-family: ".SF NS Display";
+    font-size: 2.4rem;
+    letter-spacing: .1rem;
+    line-height: 3.6rem;
+    padding-bottom: 2rem;
+  }
+
+  .italic {
+    font-style: italic;
+    font-weight: 100;
+  }
+
+  .sub-header {
+    width: 95%;
+    background: $white;
+    display: flex;
+    padding: 2rem;
+    margin: auto;
+    margin: 5rem auto;
+    position: relative;
+
+    &__label {
+      position: absolute;
+    }
+
+    &__content {
+      padding: 4.9rem 7.8rem;
+
+      h2 {
+        color: transparentize($black, 0.2);
+        font-family: ".SF NS Display";
+        font-size: 2.4rem;
+        letter-spacing: .1rem;
+        line-height: 3.6rem;
+      }
+
+      p {
+        color: transparentize($black, 0.3);
+        font-family: ".SF NS Display";
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        padding: 2rem 0;
+        font-weight: 100;
+      }
+    }
+  }
+
+  .gallery {
+    &__one {
+      grid-area: galleryOne;
+      background: url('../../assets/images/blue.png') $grey;
+      height: 31.2rem;
+      position: relative;
+
+      div {
+        margin: 0;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+
+      &--title {
+        color: transparentize($black, 0.2);
+        font-family: ".SF NS Display";
+        font-size: 4.8rem;
+        letter-spacing: .2rem;
+        font-weight: 700;
+      }
+
+      p {
+        color: $primary-color;
+        font-family: ".SF NS Display";
+        font-size: 2.4rem;
+        letter-spacing: .103rem;
+        line-height: 3.6rem;
+        text-align: center;
+        font-weight: 700;
+      }
+    }
+
+    &__two {
+      grid-area: galleryTwo;
+      background: url('../../assets/images/yellow.png'), url('../../assets/images/images-model2.png');
+      background-size: cover;
+      height: 31.2rem;
+      position: relative;
+
+      div {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+
+      &--title {
+        color: $white;
+        font-family: ".SF NS Display";
+        font-size: 4.8rem;
+        letter-spacing: .2rem;
+        line-height: 7.2rem;
+        text-align: center;
+      }
+
+    }
+
+    &__three {
+      grid-area: galleryThree;
+      background: $white;
+      height: 64.4rem;
+      position: relative;
+
+      &--label {
+        position: absolute;
+        top: 2.3rem;
+        left: 2.4rem;
+      }
+
+      &--image {
+        background: url('../../assets/images/gallery3.png') $white;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        height: 40.8rem;
+      }
+
+      &--content {
+        padding: 2rem;
+        text-align: center;
+
+        h1 {
+          color: transparentize($black, 0.2);
+          font-family: ".SF NS Display";
+          font-size: 4.8rem;
+          letter-spacing: .2rem;
+          line-height: 7.4rem;
+          margin: 0;
+        }
+
+        p {
+          color: transparentize($black, 0.2);
+          font-family: ".SF NS Display";
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+          padding-bottom: 2.3rem;
+        }
+      }
+    }
+
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 40rem auto auto;
+    grid-template-areas:
+      "galleryOne  galleryThree  galleryThree"
+      "galleryTwo galleryThree galleryThree";
+    padding-bottom: 2rem;
+  }
+
+  .subscription {
+    background-color: $grey;
+    height: 26.4rem;
+    position: relative;
+    margin: 2rem 0;
+    padding: 4rem;
+
+    &__content {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      padding-top: 2rem;
+
+     &--title {
+      color: $primary-color;
+      font-family: ".SF NS Display";
+      font-size: 2.4rem;
+      letter-spacing: .103rem;
+      line-height: 3.6rem;
+      text-align: center;
+      font-weight: 200;
+      font-weight: 700;
+      }
+
+      p {
+        color: transparentize($black, 0.2);
+        font-family: ".SF NS Display";
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        letter-spacing: .1rem;
+        text-align: center;
+        font-weight: 700;
+        padding-bottom: 1rem;
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+}

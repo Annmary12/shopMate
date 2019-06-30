@@ -1,0 +1,40 @@
+@import '../../assets/scss/variables.scss';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem 5rem;
+  font-family: ".SF NS Display";
+
+  &__title {
+    color: $black;
+    font-family: "Lucida Grande";
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    padding-top: 1.5rem;
+
+    li {
+      color: transparentize($black, 0.5);
+      font-family: ".SF NS Display";
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      font-weight: 100;
+      cursor: pointer;
+    }
+  }
+
+  .copyright {
+    color: transparentize($black, 0.5);
+    font-family: ".SF NS Display";
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 100;
+    display: block;
+    padding-right: 5rem;
+  }
+}

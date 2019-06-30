@@ -1,0 +1,29 @@
+@import '../../../assets/scss/variables.scss';
+
+.finish {
+  text-align: center;
+  padding: 6rem;
+
+  img {
+    margin-top: 4rem;
+  }
+
+  h1 {
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+    letter-spacing: .2rem;
+    color: transparentize($black, 0.3);
+  }
+
+  p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #6C6C6C;
+  }
+}

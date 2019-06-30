@@ -1,0 +1,36 @@
+@import '../../assets/scss/variables.scss';
+
+.saved-items {
+  .title {
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+  }
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid $dark-grey;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    font-family: 'Montserrat';
+    line-height: 2.5rem;
+
+    &__image {
+     img {
+      height: 12rem;
+     }
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      button {
+        border-radius: 0;
+      }
+    }
+  }
+}

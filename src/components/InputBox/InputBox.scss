@@ -1,0 +1,92 @@
+@import '../../assets/scss/variables.scss';
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    top: 3rem;
+    left: 1.5rem;
+  }
+
+  .light {
+   font-weight: 400;
+   color: transparentize($secondary-color, .6);
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $secondary-color;
+
+    &--right {
+      float: right;
+      margin-right: .3rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: $secondary-color;
+    }
+  }
+
+  &__input {
+    margin:  1.5rem 0;
+  }
+
+  .input {
+    padding: 1.5rem 4.5rem;
+    border: 1px solid transparentize($secondary-color, 0.85);
+    font-size: 1.4rem;
+    font-family: ".SF NS Display";
+    width: 100%;
+    color: transparentize($secondary-color, 0.2);
+    &__rounded {
+      border-radius: 2.8rem;
+    }
+
+    &__blocked {
+      padding: 1.5rem 1.5rem;
+      border-radius: .6rem;
+    }
+
+    &:focus {
+      border: .1rem solid green;
+    }
+
+    &__error, &__error:focus {
+      border: 1px solid $error-color;
+    }
+
+    &__error--message {
+      color: $error-color;
+      font-size: 1.4rem;
+    }
+
+  }
+
+  &__bottom {
+    float: left;
+    margin: 1rem 0 2rem;
+    font-size: 1.2rem;
+    color: transparentize($black, 0.2);
+    font-family: ".SF NS Display";
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    a {
+      color: red;
+    }
+  }
+
+  ::placeholder {
+    color: transparentize($secondary-color, 0.8);
+    font-size: 1.4rem;
+    font-weight: 100;
+    letter-spacing: .15rem;
+  }
+
+  .medium {
+    width: 31rem;
+  }
+}

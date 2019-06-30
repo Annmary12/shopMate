@@ -1,0 +1,89 @@
+@import '../../../assets/scss/variables.scss';
+
+.payment {
+  padding: 12rem 14rem;
+
+  &__method {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+
+    div {
+      border: 1px solid $dark-grey;
+      background: transparentize($grey, 0.6);
+      text-align: center;
+      padding: 2rem 4rem;
+
+      p {
+        display: flex;
+        justify-content: center;
+        padding-top: 2rem;
+        font-family: Lucida Grande;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: #2E2E2E;
+      }
+    }
+    .images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img:nth-child(2) {
+        margin-left: 3rem;
+      }
+    }
+  }
+
+  .form-row {
+    width: 100%;
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 2rem;
+
+    label {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: $dark-grey;
+    }
+    .stripe-label {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .card-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+
+    p {
+      padding-top: 4rem;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.2rem;
+      line-height: 2.4rem;
+      color: #6C6C6C;
+    }
+  }
+ 
+}
+
+.InputContainer input.InputElement {
+  height: 20px !important;
+  background: red !important;
+  color: red !important;
+}
+
+.ElementsApp input {
+  background-color: none !important;
+  border: inherit !important;
+}

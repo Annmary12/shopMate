@@ -1,0 +1,128 @@
+@import '../../assets/scss/variables.scss';
+
+.cart-modal {
+  padding: 5rem;
+
+  .save-for-later {
+    i {
+      color: $primary-color;
+      padding-right: 1rem;
+    }
+    padding-right: 2rem;
+    color: $primary-color;
+    font-size: 1.4rem;
+  }
+
+  &__remove {
+    &:hover {
+      color: $error-color;
+    }
+    font-size: 1.4rem !important;
+  }
+
+  &__header {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    letter-spacing: .1rem;
+    color: $black2;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: $dark-grey;
+    }
+
+    th, td {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    thead tr {
+      border-bottom: .1rem solid $grey;
+    }
+  }
+
+  &__desc {
+    display: flex;
+
+    img {
+      height: 9.6rem;
+      object-fit: cover;
+      border: 1px solid $grey;
+      padding: 1rem 0;
+    }
+
+    &--content {
+      padding-left: 2rem;
+
+      h2 {
+        font-family: Lucida Grande;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: $black2;
+      }
+
+      p {
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.6rem;
+        line-height: 5.2rem;
+        color: $black2;
+      }
+
+      span {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.2rem;
+        line-height: 2.4rem;
+        color: $dark-grey;
+        cursor: pointer;
+
+        i {
+          color: $error-color;
+        }
+      }
+    }
+  }
+
+  &__size {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $dark-grey;
+  }
+
+  &__price {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    letter-spacing: .103125rem;
+    color: $black2;
+  }
+}
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $grey;
+  padding: 2rem 5.5rem;
+}

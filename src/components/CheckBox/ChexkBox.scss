@@ -1,0 +1,49 @@
+@import '../../assets/scss/variables.scss';
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  padding: .2rem 0;
+
+  &__label {
+    font-family: ".SF NS Display";
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding-left: 1rem;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    background-color: $grey;
+    border: .1rem solid $grey;
+    box-shadow: 0 .1rem .2rem rgba(0,0,0,0.05), inset 0 -1.5rem 1rem -1.2rem rgba(0,0,0,0.05);
+    padding: .8rem !important;
+    border-radius: .4rem;
+    display: inline-block;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    &:active, &:checked:active {
+      box-shadow: 0 .1rem .2rem rgba(0,0,0,0.05), inset 0 .1rem .3rem rgba(0,0,0,0.1);
+    }
+
+    &:checked {
+      background-color: $blue;
+      border: .1rem solid $blue;
+      box-shadow: 0 .1rem .2rem rgba(0,0,0,0.05), inset 0 -1.5rem 1rem -1.2rem rgba(0,0,0,0.05), inset 1.5rem 1rem -1.2rem rgba(255,255,255,0.1);
+      color: #99a1a7;
+
+      &:after {
+        font-family: FontAwesome;
+        content: "\f00c";
+        font-size: 1.4rem;
+        font-weight: 100;
+        position: absolute;
+        top: 0;
+        left: .1rem;
+        color: $white;
+      }
+    }
+  }
+}

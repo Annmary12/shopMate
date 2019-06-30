@@ -1,0 +1,125 @@
+@import '../../assets/scss/variables.scss';
+
+@mixin general-style(){
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  padding: 1.5rem 2.1rem;
+  background: $white;
+  color: transparentize($black, 0.3);
+}
+
+.navbar {
+  @include general-style;
+
+  .active-link {
+    a {
+      color: $primary-color !important;
+      font-weight: bold;
+    }
+  }
+
+  .search-form {
+    position: relative;
+  }
+  .search-input {
+    padding: 1rem 4.5rem;
+    border-radius: 2.5rem;
+    background: rgba(255,255,255,0.5);
+    color: $white;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    border: 1px solid $black;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+
+    &::placeholder {
+      color: $white;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    &__icon {
+      position: absolute;
+      left: 6%;
+      top: 30.38%;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      left: 88%;
+      top: 30.38%;
+    }
+  }
+
+  &__product-page {
+    background: transparentize($black, 0.2);
+    color: $white;
+
+    a {
+      color: $white !important;
+      font-family: 'Montserrat';
+      font-weight: 700;
+
+      &:hover {
+        color: transparentize($primary-color, 0.5) !important;
+      }
+    }
+  }
+
+  a {
+    color: transparentize($black, 0.3);
+
+    &:hover {
+      color: transparentize($primary-color, 0.5);
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      img {
+        padding-right: 2rem;
+      }
+
+      display: inline-block;
+      padding: .6rem 4rem;
+      cursor: pointer;
+    }
+  }
+
+  &__left {
+    ul li:hover {
+      color: transparentize($primary-color, 0.5);
+    }
+  }
+
+  &__right {
+    ul li:first-child {
+      padding: 0;
+    }
+
+    &--notification {
+      position: relative;
+    }
+
+    &--number {
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      color: $white;
+      background: $primary-color;
+      padding: .5rem;
+      height: 2.4rem;
+      width: 2.4rem;
+      border-radius: 50%;
+      text-align: center;
+
+    }
+  }
+}

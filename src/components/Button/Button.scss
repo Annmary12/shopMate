@@ -1,0 +1,48 @@
+
+@import '../../assets/scss/variables.scss';
+
+%btn-placeholder {
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  display: inline-block;
+  border-radius: 2.4rem;
+  font-family: ".SF NS Display";
+  background-color: $white;
+  transition: all .2s;
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+}
+
+.btn {
+   &__primary {
+    @extend %btn-placeholder;
+    background: $primary-color;
+    color: $white;
+    border: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+   }
+
+   &__secondary {
+    @extend %btn-placeholder;
+    color: $primary-color;
+
+    &:hover {
+      opacity: 0.8;
+    }
+   }
+}
+
+.medium {
+  padding: 1.5rem 4rem;
+}

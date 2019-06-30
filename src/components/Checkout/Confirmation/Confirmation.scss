@@ -1,0 +1,103 @@
+@import '../../../assets/scss/variables.scss';
+
+.confirmation {
+  padding: 6rem 14rem;
+  margin-top: 8rem;
+
+  &__summary {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  h1 {
+    font-family: Lucida Grande;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #2E2E2E;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    tbody tr {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #2E2E2E;
+
+      &:hover {
+        background-color: transparentize($dark-grey, 0.7);
+      }
+
+      &:nth-child(odd) {
+        background-color: transparentize($grey, 0.5);
+      }
+
+      td:nth-child(3) {
+        font-family: 'Montserrat';
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  thead, .address label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #B4B4B4;
+  }
+
+  .address {
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #2E2E2E;
+    }
+
+    p, label {
+      padding: 2rem 0;
+    }
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    .discount {
+      padding: 1.5rem;
+      border: 1px solid $grey;
+      box-sizing: border-box;
+      border-radius: 2.4rem;
+    }
+
+    .discount, p, span {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #BABABA;
+    }
+    span {
+      font-family: Lucida Grande;
+      color: #2E2E2E;
+    }
+  }
+}

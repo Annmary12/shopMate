@@ -1,0 +1,80 @@
+@import './variables.scss';
+@import './utilities.scss';
+@import './typography.scss';
+@import './mixins.scss';
+@import './grid.scss';
+@import '../../../node_modules/normalize.css/normalize.css';
+@import '../../../node_modules/react-input-range/lib/css/index.css';
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // sets what 1rem is
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: SF NS Display;
+  src: url(../font/SFUIDisplay-Black.otf);
+  font-weight: normal;
+}
+
+body {
+  box-sizing: border-box;
+  background: $background;
+  font-weight: 400;
+  font-family: "SF NS Display";
+}
+
+.container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+    font-weight: 700;
+  }
+}
+
+* {
+
+  &:active {
+    outline: none;
+  }
+
+  &:visited {
+    color: $black;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a:link {
+  color: $black;
+  cursor: pointer;
+}
+
+.error-message {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  text-align: center;
+  letter-spacing: .103125rem;
+  color: $error-color;
+}

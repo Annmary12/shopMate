@@ -1,0 +1,158 @@
+@import '../../assets/scss/variables.scss';
+
+/* The radio-box */
+.radio-box {
+  display: inline;
+  position: relative;
+  padding-left: 3.5rem;
+  cursor: pointer;
+  font-size: 2.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 50%;
+
+  &__default {
+    background-color: $grey;
+  }
+
+  &__orange {
+    background-color: $orange;
+  }
+
+  &__pink {
+    background-color: $primary-color;
+  }
+
+  &__cyan {
+    background-color: $cyan;
+  }
+
+  &__green {
+    background-color: $green;
+  }
+
+  &__purple {
+    background-color: $purple;
+  }
+
+  &__blue {
+    background-color: $blue;
+  }
+
+  &__yellow {
+    background-color: transparentize($dark-yellow, 0.5);
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.radio-box:hover input ~ .checkmark {
+  background-color: $grey;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-box input:checked ~ .checkmark {
+  background-color: $grey;
+}
+
+.radio-box input:checked ~ .checkmark__default {
+  background-color: $blue;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-box input:checked ~ .checkmark:after {
+  display: block;
+}
+
+%indicator-postion {
+  top: 18%;
+  left: 18%;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-box__default {
+  .checkmark:after {
+    top: 25%;
+    left: 25%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: $grey;
+  }
+}
+
+.radio-box__blue {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $blue;
+  }
+}
+
+.radio-box__cyan {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $cyan;
+  }
+}
+
+.radio-box__pink {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $primary-color;
+  }
+}
+
+.radio-box__orange {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $orange;
+  }
+}
+
+.radio-box__yellow {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: transparentize($dark-yellow, 0.2);
+  }
+}
+
+.radio-box__green {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $green;
+  }
+}
+
+.radio-box__purple {
+  .checkmark:after {
+    @extend %indicator-postion;
+    background: $purple;
+  }
+}
