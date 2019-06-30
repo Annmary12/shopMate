@@ -23,10 +23,13 @@ export const getItemsInCart = () => async(dispatch, getState, http) => {
   try {
     dispatch(isRequesting(IS_REQUESTING, true));
     const cartId = localStorage.getItem('cartId');
-    const cartItems = await http.get(`/shoppingcart/${cartId}`);
+
+    if (cartId) {
+      const cartItems = await http.get(`/shoppingcart/${cartId}`);
+      dispatch(actionResponseSuccess(GET_CART_SUCCESS, cartItems.data));
+    }
 
     dispatch(isRequesting(IS_REQUESTING, false));
-    dispatch(actionResponseSuccess(GET_CART_SUCCESS, cartItems.data));
   } catch (error) {
     dispatch(isRequesting(IS_REQUESTING, false));
     dispatch(actionResponseFailure(CART_FAILURE, error.message));
