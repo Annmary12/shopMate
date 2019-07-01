@@ -1,11 +1,11 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0e0d4188-cf6d-4894-a453-7e7e19f5e909/deploy-status)](https://app.netlify.com/sites/shop-mate/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13ac0515-d700-4deb-87d3-4bdfaaba1598/deploy-status)](https://app.netlify.com/sites/shop-mate/deploys)
 
 ## Shopmate
 
 Shopmate is an Eccomerce website that allows users to see list of products, search for an item, add items to their shopping cart, create order and checkout successfully.
 
 ## Hosted Link
-[ShopMate](https://phone-number-generator.netlify.com/)
+[ShopMate](https://shop-mate.netlify.com/)
 
 ## Features
 * Users can signin and register
@@ -19,10 +19,10 @@ Shopmate is an Eccomerce website that allows users to see list of products, sear
 * Users can update personal profiles with shipping addresses and other info
 
 ## Technology Stack Used
-* React A javascript library for building user interfaces
-* Redux A predictable state container for javascript apps.
-* Formik Handles form state in React, it is a component that helps you in building forms.
-* Yup Is a Javascript bject schema validator and object parser
+* React a javascript library for building user interfaces
+* Redux a predictable state container for javascript apps.
+* Formik handles form state in React, it is a component that helps you in building forms.
+* Yup is a Javascript bject schema validator and object parser
 
 ## Project Structure
 
