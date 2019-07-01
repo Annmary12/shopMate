@@ -127,7 +127,6 @@ class SingleProduct extends Component {
     await this.props.addReview(this.state.review)
     await this.resetReviewForm();
     await this.props.getProductReview(productId);
-    console.log(this.state, 'resetform===')
   }
 
   /**

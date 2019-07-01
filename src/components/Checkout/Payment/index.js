@@ -71,7 +71,6 @@ class CheckoutPayment extends Component {
   }
 
   handleInputChange = (event) => {
-    console.log(event.target.name, 'I came here');
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value

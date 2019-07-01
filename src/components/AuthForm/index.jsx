@@ -74,12 +74,8 @@ class AuthForm extends Component {
 
   responseFacebook = (response) => {
     if (response.accessToken) {
-      // const accessToken = {
-      //   access_token: response.accessToken,
-      // };
       this.props.loginWithFacebook(response.accessToken, this.props.closeModal);
     }
-    console.log(response);
   }
 
   render() {

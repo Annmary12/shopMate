@@ -45,7 +45,6 @@ class Navbar extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
-      console.log(this.props.location, 'history')
       this.onRouteChanged();
     }
   };

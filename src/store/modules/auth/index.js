@@ -77,13 +77,11 @@ export const login = (userDetails, closeModal) => async(dispatch, getState, http
  */
 export const loginWithFacebook = (facebookAccessToken, closeModal) => async(dispatch, getState, http) =>{
   try {
-    console.log({facebookAccessToken})
     dispatch({ type: CLEAR_ERROR });
     dispatch(isRequesting(IS_REQUESTING, true));
 
     const { data: { accessToken }} = await http.post('/customers/facebook', {access_token: facebookAccessToken});
     const decodeUser = jwtDecode(accessToken)
-    console.log({accessToken, decodeUser})
 
     localStorage.setItem('jwtToken', accessToken);
 
@@ -94,7 +92,6 @@ export const loginWithFacebook = (facebookAccessToken, closeModal) => async(disp
     closeModal();
   } catch (error) {
     dispatch(isRequesting(IS_REQUESTING, false));
-    console.log(error.response)
     dispatch(actionResponseFailure(AUTH_FAILURE, error.response.data.error.message));
   }
 }

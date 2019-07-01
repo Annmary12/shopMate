@@ -51,17 +51,15 @@ export const updateCustomer = (customerDetails, step, updateCurrentStep) => asyn
  */
 export const updateCustomerDetails = (customerDetails) => async(dispatch, getState, http) => {
   try {
-    console.log({customerDetails})
     dispatch(isRequesting(IS_REQUESTING, true));
 
     const customer = await http.put('customer', customerDetails);
-    console.log({customer}, 'sucess===')
+
     dispatch(isRequesting(IS_REQUESTING, false));
     dispatch(actionResponseSuccess(UPDATE_CUSTOMER_SUCCESS, customer.data));
   } catch (error) {
-    console.log(error.message, 'error===')
     dispatch(isRequesting(IS_REQUESTING, false));
-    // dispatch(actionResponseFailure(CUSTOMER_FAILURE, error.response.data.error.message));
+    dispatch(actionResponseFailure(CUSTOMER_FAILURE, error.response.data.error.message));
   }
 }
 

@@ -19,11 +19,10 @@ import { emptyCart } from 'store/modules/cart';
  */
 export const createOrder = (orderDetails, stripeToken, amount, updateCurrentStep) => async(dispatch, getState, http) => {
   try {
-    console.log({orderDetails, stripeToken, amount}, 'order=====')
     dispatch(isRequesting(IS_REQUESTING, true));
 
     // const order = await http.post('/orders', orderDetails);
-    // console.log({order})
+
     const paymentDetails = {
       stripeToken,
       order_id: 1,
@@ -33,13 +32,12 @@ export const createOrder = (orderDetails, stripeToken, amount, updateCurrentStep
     }
     const payment = await http.post('stripe/charge', paymentDetails);
     await dispatch(emptyCart());
-    console.log({payment})
 
     dispatch(isRequesting(IS_REQUESTING, false));
     dispatch(actionResponseSuccess(ORDER_SUCCESS, 'Successfully Created An Order'));
     updateCurrentStep(4);
   } catch (error) {
-    console.log({error})
+    
     dispatch(isRequesting(IS_REQUESTING, false));
     dispatch(actionResponseFailure(ORDER_FAILURE, error.response.data.error.message));
   }
@@ -54,7 +52,6 @@ export const customerOrders = () => async(dispatch, getState, http) => {
   try {
     dispatch(isRequesting(IS_REQUESTING, true));
     const orders = await http.get(`/orders/inCustomer`);
-    console.log({orders})
 
     dispatch(isRequesting(IS_REQUESTING, false));
     dispatch(actionResponseSuccess(CUSTOMER_ORDERS, orders.data));

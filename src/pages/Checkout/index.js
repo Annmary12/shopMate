@@ -23,17 +23,9 @@ class Checkout extends Component {
     super(props);
 
     this.state = {
-      currentStep: 3,
+      currentStep: 1,
       shippingId: ''
     }
-
-    // if (window.performance) {
-    //   if (performance.navigation.type === 1) {
-    //     alert(this.state.currentStep);
-    //   } else {
-    //     alert( "This page is not reloaded");
-    //   }
-    // }
   }
 
   componentDidMount() {
