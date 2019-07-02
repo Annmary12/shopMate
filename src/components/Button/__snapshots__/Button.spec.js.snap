@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render button correctly 1`] = `
+<Button
+  classes="TestClass"
+  name="TestName"
+  type="text"
+>
+  <button
+    className={
+      Array [
+        "TestClass undefined",
+      ]
+    }
+    onClick={null}
+    type="text"
+  >
+    TestName
+  </button>
+</Button>
+`;

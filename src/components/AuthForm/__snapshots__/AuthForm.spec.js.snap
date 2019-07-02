@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthForm component should render button correctly 1`] = `undefined`;
+
+exports[`AuthForm component should render correctly 1`] = `
+<Formik
+  enableReinitialize={false}
+  formType="login"
+  handleSubmit={[Function]}
+  initialValues={
+    Object {
+      "email": "",
+      "name": "",
+      "password": "",
+      "rememberMe": "",
+    }
+  }
+  isInitialValid={false}
+  onChangeFormState={[MockFunction]}
+  onSubmit={[Function]}
+  render={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+  validationSchema={[Function]}
+/>
+`;

@@ -18,6 +18,7 @@ class CartModal extends Component {
     super(props);
     this.state = {
       quantity: 1,
+      error: ''
     }
   }
 
@@ -54,10 +55,27 @@ class CartModal extends Component {
    *
    * @returns {void}
    */
-  updateItem = (itemId, type, quantity) => () => {
+  updateItem = (itemId, type, quantity) => async() => {
     const getQuantity = type === 'add' ? quantity + 1 : quantity - 1;
 
-    this.props.updateItem(itemId, getQuantity);
+    await this.props.updateItem(itemId, getQuantity);
+    if (this.getTotal() >= 50) {
+      this.setState({error: ''});
+    }
+  }
+
+  /**
+   * Gets the total amount of items in cart
+   *
+   * @returns {void}
+   */
+  getTotal = () => {
+    const { cartItems } = this.props;
+    if (cartItems.length === 1) {
+      return cartItems[0].subtotal;
+    } else {
+      return this.props.cartItems.reduce((a, b) => (parseFloat(a.subtotal) + parseFloat(b.subtotal)))
+    }
   }
 
   /**
@@ -68,28 +86,37 @@ class CartModal extends Component {
    * @returns {void}
    */
   reDirect = (to) => () => {
-    this.props.history.push(`/${to}`);
-    this.props.closeModal();
+    if (to === 'checkout' && this.getTotal() < 50) {
+      this.setState({
+        error: 'You need have up to £50 before you can checkout. Kindly add more items to your cart '
+      })
+    } else {
+      this.props.history.push(`/${to}`);
+      this.props.closeModal();
+    }
   }
 
   render() {
     const { cartItems, isLoading } = this.props;
+    const { error } = this.state;
     const imageBaseUrl = 'https://backendapi.turing.com/images/products';
 
     return (
       <>
       <div className="cart-modal">
         <h1 className="cart-modal__header">{ cartItems && cartItems.length <= 0 ? 'No' : cartItems.length} Items In Your Cart</h1>
+        { error && <div className="error-message">{error}</div>}
         { isLoading
-          ? 'Loading'
+          ? 'Loading...'
           : cartItems.length > 0
             ? <table>
                 <thead>
                   <tr>
                     <th>Item</th>
                     <th>Size</th>
-                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>Quantity</th>
+                    <th>total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -105,6 +132,7 @@ class CartModal extends Component {
                       </div>
                     </td>
                     <td className="cart-modal__size">{item.attributes}</td>
+                    <td className="cart-modal__price">{item.price}</td>
                     <td>
                       <span className="single-product__quantity--btn" onClick={this.updateItem(item.item_id, 'add', item.quantity)}>
                         <i className="fa fa-plus fa-2x"></i>
@@ -116,7 +144,7 @@ class CartModal extends Component {
                         <i className="fa fa-minus fa-2x"></i>
                       </span>
                     </td>
-                    <td className="cart-modal__price">{item.price}</td>
+                    <td className="cart-modal__price">{item.subtotal}</td>
                   </tr>
                 ))}
                 </tbody>

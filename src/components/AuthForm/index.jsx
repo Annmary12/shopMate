@@ -24,7 +24,7 @@ import { registerUser, login, loginWithFacebook } from 'store/modules/auth'
 import './AuthForm.scss';
 
 
-class AuthForm extends Component {
+export class AuthForm extends Component {
   constructor(props) {
     super(props);
 
@@ -202,6 +202,7 @@ AuthForm.propTypes = {
   isSubmitting: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  onChangeFormState: PropTypes.func
 };
 
 AuthForm.defaultProps = {

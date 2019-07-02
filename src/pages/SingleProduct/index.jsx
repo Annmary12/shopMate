@@ -69,20 +69,6 @@ class SingleProduct extends Component {
     })
   }
 
-  /**
-   * Handles cart quantity change
-   *
-   * @param {string} - type of the action
-   *
-   * @returns {void}
-   */
-  onHandleQuantity = (type) => () => {
-    const { quantity } =  this.state;
-
-    this.setState({
-      quantity: type === 'add' ? (quantity + 1) : (quantity === 1 ? 1 : quantity - 1 )
-    })
-  }
 
   /**
    * Handles product size change
@@ -224,7 +210,6 @@ class SingleProduct extends Component {
                   mgMouseOffsetX={-100}
                   mgTouchOffsetY={-50}
                  />
-                {/* <img src={this.state.selectedImage ? this.state.selectedImage : `https://backendapi.turing.com/images/products/${product.thumbnail}`} alt="product" className="single-product__image--big" /> */}
                 <div className="single-product__small-images">
                   <img src={`${imageBaseUrl}/${product.image}`} alt="product" className="single-product__image--small single-product__image--active" onClick={() => this.onImageChange(product.image)} />
                   <img src={`${imageBaseUrl}/${product.image_2}`} alt="product" className="single-product__image--small" onClick={() => this.onImageChange(product.image_2)} />
@@ -283,19 +268,6 @@ class SingleProduct extends Component {
                   { sizes && sizes.map((size, index) => (
                     <span className={this.getSizeClasses(size)} key={index} onClick={this.onSizeChange(size)}> {size} </span>
                   ))}
-                </div>
-
-                <div className="single-product__quantity mtxs">
-                  <h2 className="mbxs">Quantity</h2>
-                  <span className="single-product__quantity--btn" onClick={this.onHandleQuantity('add')}>
-                    <i className="fa fa-plus fa-2x"></i>
-                  </span>
-                  <span className="single-product__quantity--value mls">
-                    {this.state.quantity}
-                  </span>
-                  <span className="single-product__quantity--btn" onClick={this.onHandleQuantity('minus')}>
-                    <i className="fa fa-minus fa-2x"></i>
-                  </span>
                 </div>
 
                 <div className="single-product__checkout mts">

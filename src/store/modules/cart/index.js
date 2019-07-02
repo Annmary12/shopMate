@@ -190,7 +190,9 @@ export const reducer = (state = cartInitialState, action) => {
     case UPDATE_ITEM_SUCCESS:
       return {
         ...state,
-        data: state.data.map(item => item.item_id === action.payload.item_id ? {...item, quantity: action.payload.quantity} : item)
+        data: state.data.map(item => item.item_id === action.payload.item_id
+          ? { ...item, quantity: action.payload.quantity, subtotal: action.payload.subtotal }
+          : item )
       }
     case GET_TOTAL_CART_AMOUNT:
       return {

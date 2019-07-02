@@ -10,7 +10,7 @@ import shoeImage from 'assets/images/men.jpg';
 // styles
 import './SavedItems.scss';
 
-const SavedItems = ({items, moveToCartAction, removeItemAction}) => console.log({items}) || (
+const SavedItems = ({items, moveToCartAction, removeItemAction}) => (
   <div className="saved-items">
     <h1 className="title">Saved Items {items.length}</h1>
     { items && items.length >= 1 && items.map((item, index) => (

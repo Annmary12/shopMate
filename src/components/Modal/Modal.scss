@@ -23,7 +23,7 @@
   &__show {
     position: relative;
     z-index: 99999;
-    top: 5%;
+    top: 0;
     right: 0;
     left: 0;
     display: flex;
@@ -42,7 +42,7 @@
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
 
     &.modal-w-900 {
-      width: 900px;
+      width: 1000px;
     }
   
     &.modal-w-600 {
