@@ -70,6 +70,29 @@ export const getProductsByCategory = (limit = 12, categoryId, page = 1) => async
 }
 
 /**
+ * @description get all products
+ *
+ * @param {number} limit
+ * @param {number} categoryId
+ *
+ * @returns {object} action type and payload
+ */
+export const getProductsByDepartment = (limit = 12, departmentId, page = 1) => async(dispatch, getState, http) => {
+  try {
+    dispatch(isRequesting(IS_REQUESTING, true));
+
+    const products = await http.get(`products/inCategory/${departmentId}?limit=${limit}&page=${page}`);
+
+    dispatch(isRequesting(IS_REQUESTING, false));
+    dispatch(actionResponseSuccess(GET_PRODUCTS_SUCCESS, products.data));
+  } catch (error) {
+    dispatch(isRequesting(IS_REQUESTING, false));
+    dispatch(actionResponseFailure(GET_PRODUCTS_FAILURE, error.message));
+  }
+}
+
+
+/**
  * @description - gets a product
  *
  * @param {string} productId

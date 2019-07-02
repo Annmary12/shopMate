@@ -16,6 +16,7 @@ import CartModal from 'components/CartModal';
 import { getItemsInCart } from 'store/modules/cart';
 import { getCategories } from 'store/modules/categories';
 import { searchProduct } from 'store/modules/products';
+import { getDepartment } from 'store/modules/department';
 
 // style
 import './Navbar.scss';
@@ -41,6 +42,7 @@ class Navbar extends Component {
     this.onRouteChanged();
     this.props.getItemsInCart();
     this.props.getCategories();
+    this.props.getDepartment()
   };
 
   componentDidUpdate(prevProps) {
@@ -135,8 +137,8 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isLoading, itemsInCart, categories } = this.props;
-    const { categoryId } = queryString.parse(this.props.location.search);
+    const { isLoading, itemsInCart, categories, departments } = this.props;
+    const { departmentId } = queryString.parse(this.props.location.search);
 
     return (
       <>
@@ -150,9 +152,9 @@ class Navbar extends Component {
                   <img src={logo} alt="logo" />
                 </Link>
               </li>
-             { !this.state.noContent &&  categories && categories.length > 1 && categories.slice(0, 6).map((category, index) => (
-                <li key={category.category_id} className={category.category_id === parseInt(categoryId) ? 'active-link' : ''}>
-                  <Link to={`/product-page?categoryId=${category.category_id}`}>{category.name}</Link>
+             { !this.state.noContent &&  departments && departments.length > 1 && departments.map((department, index) => (
+                <li key={department.department_id} className={department.department_id === parseInt(departmentId) ? 'active-link' : ''}>
+                  <Link to={`/product-page?departmentId=${department.department_id}`}>{department.name}</Link>
                 </li>
               ))}
             </ul>
@@ -202,14 +204,16 @@ export const mapStateToProps = state => {
   return {
     itemsInCart: state.cart.data,
     isLoading: state.cart.isLoading,
-    categories: state.categories.data
+    categories: state.categories.data,
+    departments: state.department.data
   }
 };
 
 export const mapDispatchToProps = dispatch => ({
   getItemsInCart: () => dispatch(getItemsInCart()),
   getCategories: () => dispatch(getCategories()),
-  searchProduct: (querySearch) => dispatch(searchProduct(querySearch))
+  searchProduct: (querySearch) => dispatch(searchProduct(querySearch)),
+  getDepartment: () => dispatch(getDepartment()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

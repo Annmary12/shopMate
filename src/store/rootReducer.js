@@ -8,8 +8,10 @@ import customer from './modules/customer';
 import regions from './modules/shippingOptions';
 import orders from './modules/order';
 import categories from './modules/categories';
+import department from './modules/department';
 
 const appReducer = combineReducers({
+  department,
   categories,
   products,
   cart,

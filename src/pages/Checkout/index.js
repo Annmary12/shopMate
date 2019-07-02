@@ -30,9 +30,10 @@ class Checkout extends Component {
 
   componentDidMount() {
     this.props.getTotalAmount();
-    if (this.props.user) {
-      this.props.getCustomer();
-    }
+    this.props.getCustomer();
+    // if (this.props.user) {
+    //   this.props.getCustomer();
+    // }
   }
 
   /**
@@ -139,7 +140,7 @@ class Checkout extends Component {
 
   render() {
     const { currentStep } = this.state;
-    const { customer, itemsInCart, totalAmount, isAuthenticated } = this.props;
+    const { customer, itemsInCart, totalAmount, isAuthenticated, isLoading } = this.props;
 
     return (
       <div className="checkout">

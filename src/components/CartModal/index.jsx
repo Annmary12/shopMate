@@ -88,7 +88,7 @@ class CartModal extends Component {
   reDirect = (to) => () => {
     if (to === 'checkout' && this.getTotal() < 50) {
       this.setState({
-        error: 'You need have up to £50 before you can checkout. Kindly add more items to your cart '
+        error: 'You need to have up to £50 before you can checkout. Kindly add more items to your cart '
       })
     } else {
       this.props.history.push(`/${to}`);

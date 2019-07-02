@@ -16,7 +16,7 @@ import Footer from 'components/FooterTwo';
 import Pagination from 'components/Pagination';
 
 // actions
-import { getProducts, getProductsByCategory } from 'store/modules/products';
+import { getProducts, getProductsByCategory, getProductsByDepartment } from 'store/modules/products';
 
 // style
 import './ProductPage.scss';
@@ -54,9 +54,9 @@ class ProductPage extends Component {
    * @returns {void}
    */
   getProducts = () => {
-    const { categoryId } = queryString.parse(this.props.location.search);
-    if (categoryId) {
-      this.props.getProductsByCategory(12, categoryId);
+    const { departmentId } = queryString.parse(this.props.location.search);
+    if (departmentId) {
+      this.props.getProductsByCategory(12, departmentId);
     } else {
       this.props.getProducts();
     }
@@ -71,10 +71,10 @@ class ProductPage extends Component {
   onPageChange = (page) => {
     const { limit } = this.state;
     const currentPage = page.selected + 1;
-    const { categoryId } = queryString.parse(this.props.location.search);
+    const { departmentId } = queryString.parse(this.props.location.search);
 
-    if (categoryId) {
-      this.props.getProductsByCategory(12, categoryId, currentPage);
+    if (departmentId) {
+      this.props.getProductsByCategory(12, departmentId, currentPage);
     } else {
       this.props.getProducts(limit, currentPage);
     }
@@ -250,7 +250,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   getProducts: (limit, page) => dispatch(getProducts(limit, page)),
-  getProductsByCategory: (limit, categoryId, page) => dispatch(getProductsByCategory(limit, categoryId, page))
+  getProductsByCategory: (limit, categoryId, page) => dispatch(getProductsByCategory(limit, categoryId, page)),
+  getProductsByDepartment: (limit, productId, page) => dispatch(getProductsByDepartment(limit, productId, page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
