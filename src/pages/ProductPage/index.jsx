@@ -5,18 +5,17 @@ import React, { Component } from 'react';
 // third party libraries
 import { connect } from 'react-redux';
 import queryString from 'query-string';
+import { Link } from 'react-router-dom';
 
 // components
 import ProductCard from 'components/ProductCard';
-import RadioBox from 'components/RadioBox';
-import InputRange from 'components/InputRangeSlider';
-import CheckBox from 'components/CheckBox';
 import Button from 'components/Button';
 import Footer from 'components/FooterTwo';
 import Pagination from 'components/Pagination';
 
 // actions
 import { getProducts, getProductsByCategory, getProductsByDepartment } from 'store/modules/products';
+import { getCategories, getCategoriesInDepartment } from 'store/modules/categories';
 
 // style
 import './ProductPage.scss';
@@ -54,11 +53,17 @@ class ProductPage extends Component {
    * @returns {void}
    */
   getProducts = () => {
-    const { departmentId } = queryString.parse(this.props.location.search);
+    const { departmentId, categoryId } = queryString.parse(this.props.location.search);
+    console.log({departmentId, categoryId})
     if (departmentId) {
-      this.props.getProductsByCategory(12, departmentId);
-    } else {
+      this.props.getProductsByDepartment(12, departmentId);
+      this.props.getCategoriesInDepartment(departmentId);
+    } else if (categoryId) {
+      this.props.getProductsByCategory(12, categoryId);
+    }
+    else {
       this.props.getProducts();
+      this.props.getCategories();
     }
   }
 
@@ -71,11 +76,14 @@ class ProductPage extends Component {
   onPageChange = (page) => {
     const { limit } = this.state;
     const currentPage = page.selected + 1;
-    const { departmentId } = queryString.parse(this.props.location.search);
+    const { departmentId, categoryId } = queryString.parse(this.props.location.search);
 
     if (departmentId) {
-      this.props.getProductsByCategory(12, departmentId, currentPage);
-    } else {
+      this.props.getProductsByDepartment(12, departmentId, currentPage);
+    } else if (categoryId) {
+      this.props.getProductsByCategory(12, categoryId, currentPage);
+    }
+     else {
       this.props.getProducts(limit, currentPage);
     }
 
@@ -85,8 +93,9 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { products, isLoading } = this.props;
+    const { products, isLoading, categories } = this.props;
     const totalPages = Math.ceil(this.props.totalProduct / this.state.limit);
+    const { categoryId } = queryString.parse(this.props.location.search);
 
     return (
       <div className="productpage">
@@ -122,67 +131,16 @@ class ProductPage extends Component {
         </section>
         <section className="productpage__list mts mbs">
           <section className="filter">
-            <div className="filter__category">
-              <h2 className="filter__category--title">Filter 486 items</h2>
-              <div>
-              <i className="fa fa-times"></i> <strong>Gender:</strong> Women
-              </div>
-              <div>
-              <i className="fa fa-times"></i> <strong>Category:</strong> Dresses
-              </div>
+            <div className="filter__category filter__category--title">
+              Categories
             </div>
-            <div className="filter__color">
-              <h2>Color</h2>
-              <div className="radio-buttons mts">
-                <RadioBox name="color" color="blue" />
-                <RadioBox name="color" color="cyan" />
-                <RadioBox name="color" color="pink" />
-                <RadioBox name="color" color="orange" />
-                <RadioBox name="color" color="yellow" />
-                <RadioBox name="color" color="green" />
-                <RadioBox name="color" color="purple" />
-              </div>
-              <h2 className="mtxs">Sizes</h2>
-              <div className="filter__sizes mts">
-                <span className="size">XS</span>
-                <span className="size size__active">S</span>
-                <span className="size">M</span>
-                <span className="size">L</span>
-                <span className="size">XL</span>
-              </div>
-              <h2 className="mtxs mbxs">Price range</h2>
-              <div className="mtxs mbxs">
-                <InputRange
-                  range={this.state.priceRange}
-                  onChange={value => this.setState({ priceRange: value })}
-                />
-              </div>
-              <h2 className="mtm mbxs">Brand</h2>
-              <CheckBox
-                name="brand"
-                label="Jack & Jones"
-              />
-              <CheckBox
-                name="brand"
-                label="ASOS"
-                checked={true}
-              />
-              <CheckBox
-                name="brand"
-                label="Fred Perry"
-                checked={true}
-              />
-              <CheckBox
-                name="brand"
-                label="Nike"
-              />
-            </div>
-            <div className="filter__button">
-              <Button
-                name="search"
-                classes="btn__primary"
-              />
-             <span className="filter__button--clear"><i className="fa fa-times"></i> Clear All</span>
+            <div className="categories">
+              { categories && categories.map((category, index) => (
+                <div className={`filter__category filter__category--item ${category.category_id === parseInt(categoryId) ? 'active-link' : ''}`} key={index}>
+                  <Link to={`/product-page?categoryId=${category.category_id}`}>{category.name}</Link>
+                </div>
+              ))}
+              <Link to="product-page" className="filter__category--clear"><i className="fa fa-times"></i> Clear All</Link>
             </div>
           </section>
           <div className="productpage__cards">
@@ -245,13 +203,16 @@ class ProductPage extends Component {
 export const mapStateToProps = state => ({
   products: state.products.data,
   isLoading: state.products.isLoading,
-  totalProduct: state.products.totalProduct
+  totalProduct: state.products.totalProduct,
+  categories: state.categories.data
 });
 
 export const mapDispatchToProps = dispatch => ({
   getProducts: (limit, page) => dispatch(getProducts(limit, page)),
   getProductsByCategory: (limit, categoryId, page) => dispatch(getProductsByCategory(limit, categoryId, page)),
   getProductsByDepartment: (limit, productId, page) => dispatch(getProductsByDepartment(limit, productId, page)),
+  getCategoriesInDepartment: (departmentId) => dispatch(getCategoriesInDepartment(departmentId)),
+  getCategories: () => dispatch(getCategories())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

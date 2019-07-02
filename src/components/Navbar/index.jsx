@@ -137,7 +137,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isLoading, itemsInCart, categories, departments } = this.props;
+    const { isLoading, itemsInCart, departments } = this.props;
     const { departmentId } = queryString.parse(this.props.location.search);
 
     return (

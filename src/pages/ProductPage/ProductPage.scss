@@ -5,7 +5,7 @@
   .no-product {
     font-size: 2rem;
     text-align: center;
-    font-family: "'Montserrat'";
+    font-family: 'Montserrat';
   }
   &__header {
     width: 90%;
@@ -64,25 +64,6 @@
     background: $white;
     color: transparentize($black, 0.5);
 
-    &__button {
-      background: $grey;
-      padding: 20px;
-
-      &--clear {
-        padding-left: 2rem;
-        font-family: ".SF NS Display";
-        font-size: 1.6rem;
-        line-height: 2.4rem;
-        color: $primary-color;
-        cursor: pointer;
-
-        &:hover {
-          color: transparentize($primary-color, 0.5);
-        }
-
-      }
-    }
-
     &__category {
       padding: 2rem;
       background: $grey;
@@ -103,19 +84,39 @@
         line-height: 2.4rem;
       }
 
-    }
-
-    &__color {
-      padding: 2rem;
-
-      h2 {
-        color: $dark-grey;
+      &--item {
+        background: $white;
+        font-size: 1.4rem;
+        cursor: pointer;
         font-family: "Lucida Grande";
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      &--clear {
+        padding-left: 2rem;
+        padding-top: 2rem;
+        font-family: ".SF NS Display";
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        display: block;
+        color: $primary-color;
+        cursor: pointer;
+
+        &:hover {
+          color: transparentize($primary-color, 0.5);
+        }
+
       }
     }
-
-    &__sizes {
-      @include size;
+    .active-link {
+      border-left: 2px solid $primary-color;
+      a {
+        color: $primary-color;
+        font-weight: 700;
+      }
     }
   }
 

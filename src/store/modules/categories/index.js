@@ -30,6 +30,34 @@ export const getCategories = () => async(dispatch, getState, http) => {
   }
 }
 
+/**
+ * @description Get Categories of a department
+ *
+ * @param {string} departmentId
+ *
+ * @returns {object} action type and payload
+ */
+export const getCategoriesInDepartment = (departmentId) => async(dispatch, getState, http) => {
+  try {
+    dispatch(isRequesting(IS_REQUESTING, true));
+
+    const categories = await http.get(`categories/inDepartment/${departmentId}`);
+    console.log({categories})
+
+    dispatch(isRequesting(IS_REQUESTING, false));
+    dispatch(actionResponseSuccess(GET_CATEGORIES_SUCCESS, categories.data));
+  } catch (error) {
+    let errorMessage;
+    if (error.message) {
+      errorMessage = error.message;
+    } else {
+      errorMessage = error.response.data.error.message;
+    }
+    dispatch(isRequesting(IS_REQUESTING, false));
+    dispatch(actionResponseFailure(GET_CATEGORIES_FAILURE, errorMessage));
+  }
+}
+
 const categoriesInitialState = {
   data: [],
   isLoading: false,
